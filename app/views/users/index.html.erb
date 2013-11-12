@@ -1,0 +1,39 @@
+<style>
+  body{background-color:#000000; color:#ffffff;}
+  h1{color:#b0000b; text-align:center; font-size:300%; font-family:"Lucida Calligraphy", arial, sans-serif;}
+  p{color:#ffffff; text-align:center; font-family:"Times New Roman", Times, serif;}
+  th{color:#ffffff;}
+  a{color:#b0000b}
+</style>
+
+<h1>Listing users</h1>
+
+<p>here's a paragraph</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
